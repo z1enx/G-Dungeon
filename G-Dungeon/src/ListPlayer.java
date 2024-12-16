@@ -1,4 +1,3 @@
-
 public class ListPlayer {
 
     Player head;

@@ -16,7 +16,7 @@ public class DungeonGame {
         graph.addVertex(7, "Godzilla");
         graph.addVertex(8, "Exit");
         // Menambahkan edge sesuai dengan peta dungeon
-        graph.addEdge(0, 1, 4);
+        graph.addEdge(0, 5, 4);
         graph.addEdge(0, 2, 8);
         graph.addEdge(0, 3, 7);
         graph.addEdge(1, 4, 2);
@@ -45,11 +45,11 @@ public class DungeonGame {
                 case 3: System.out.println("> About"); break;
                 case 4: System.out.println("> Exit"); break;
             }
-
+            
             String input = scanner.nextLine().toUpperCase();
 
             if (input.equals("W") && choice > 1) {
-                choice--; 
+                choice--;
             } else if (input.equals("S") && choice < 4) {
                 choice++;
             } else if (input.equals("")) {

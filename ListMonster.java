@@ -124,4 +124,16 @@ public class ListMonster {
             System.out.println(temp.model);
         }
     }
+
+    public Monster findMonster(String nama) {
+        Monster temp = head;
+        while(temp != null) {
+            if(temp.name.equals(nama)) break;
+            else temp = temp.next;
+        }
+        if(temp == null) return null;
+        else {
+            return temp;
+        }
+    }
 }

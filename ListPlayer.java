@@ -1,5 +1,4 @@
 public class ListPlayer {
-
     Player head;
     Player tail;
 
@@ -8,8 +7,8 @@ public class ListPlayer {
         tail = null;
     }
 
-    public void addPlayer(int turn, String name, double attack, double defense, double health, double mana, String role) {
-        Player newPlayer = new Player(turn, name, attack, defense, health, mana, role);
+    public void addPlayer(int turn, String name, int attack, int defense, int health, String role) {
+        Player newPlayer = new Player(turn, name, attack, defense, health, role);
         if (head == null) {
             head = newPlayer;
             tail = newPlayer;

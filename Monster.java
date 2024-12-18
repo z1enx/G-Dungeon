@@ -4,7 +4,7 @@ class Monster {
     int atk;
     int def;
     int HP;
-    int index;
+    int turn;
     Monster next;
 
     Monster(String name, String model, int atk, int def, int HP) {
@@ -12,7 +12,7 @@ class Monster {
         this.model = model;
         this.atk = atk;
         this.def = def;
-        this.index = 0;
+        this.turn = 0;
         this.next = null;
     }
 }

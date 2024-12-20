@@ -1,4 +1,3 @@
-import java.util.Scanner;
 
 import java.util.Scanner;
 
@@ -7,18 +6,11 @@ public class DungeonGame {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Graph graph = new Graph();
-<<<<<<< HEAD
         ListPlayer listPlayer = new ListPlayer();
         Fight fight = new Fight();
         ListMonster listMonster = new ListMonster();
 
         // Menambahkan vertex dan edges seperti sebelumnya
-=======
-        ListMonster listM = new ListMonster();
-        ListPlayer listPlayer = new ListPlayer(); // Tambahkan listPlayer untuk daftar pemain
-
-        // Menambahkan vertex dengan nama
->>>>>>> b145e92e2ec8fb2cb9ccce7e33a605a6ca711b5c
         graph.addVertex(0, "Entry");
         graph.addVertex(1, "Treasure1");
         graph.addVertex(2, "Kroco");
@@ -28,14 +20,8 @@ public class DungeonGame {
         graph.addVertex(6, "Treasure2");
         graph.addVertex(7, "Godzilla");
         graph.addVertex(8, "Exit");
-<<<<<<< HEAD
 
         graph.addEdge(0, 6, 4);
-=======
-        
-        // Menambahkan edge sesuai dengan peta dungeon
-        graph.addEdge(0, 5, 4);
->>>>>>> b145e92e2ec8fb2cb9ccce7e33a605a6ca711b5c
         graph.addEdge(0, 2, 8);
         graph.addEdge(0, 3, 7);
         graph.addEdge(1, 4, 2);
@@ -45,19 +31,12 @@ public class DungeonGame {
         graph.addEdge(3, 6, 3);
         graph.addEdge(3, 5, 9);
         graph.addEdge(7, 8, 4);
-<<<<<<< HEAD
         graph.addEdge(5, 9, 2);
         graph.addEdge(5, 8, 10);
         graph.addEdge(2, 5, 6);
 
         // Menu utama
         int choice = 1;
-=======
-        graph.addEdge(5, 8, 2);
-
-        int choice = 1;
-
->>>>>>> b145e92e2ec8fb2cb9ccce7e33a605a6ca711b5c
         while (true) {
             cls();
             banner();
@@ -69,7 +48,6 @@ public class DungeonGame {
             System.out.println("Use 'W' for Up, 'S' for Down, and Enter to Select.");
 
             switch (choice) {
-<<<<<<< HEAD
                 case 1:
                     System.out.print("> Play");
                     break;
@@ -82,12 +60,6 @@ public class DungeonGame {
                 case 4:
                     System.out.print("> Exit");
                     break;
-=======
-                case 1: System.out.println("> Play"); break;
-                case 2: System.out.println("> Role"); break;
-                case 3: System.out.println("> About"); break;
-                case 4: System.out.println("> Exit"); break;
->>>>>>> b145e92e2ec8fb2cb9ccce7e33a605a6ca711b5c
             }
 
             String input = scanner.nextLine().toUpperCase();
@@ -99,11 +71,7 @@ public class DungeonGame {
             } else if (input.equals("")) {
                 switch (choice) {
                     case 1:
-<<<<<<< HEAD
                         playMenu(scanner, listPlayer, graph);
-=======
-                        playMenu(scanner, listPlayer);
->>>>>>> b145e92e2ec8fb2cb9ccce7e33a605a6ca711b5c
                         break;
                     case 2:
                         roleMenu(scanner);
@@ -113,17 +81,12 @@ public class DungeonGame {
                         break;
                     case 4:
                         System.out.println("Exiting the game. Goodbye!");
-<<<<<<< HEAD
-=======
-                        scanner.close();
->>>>>>> b145e92e2ec8fb2cb9ccce7e33a605a6ca711b5c
                         return;
                 }
             } else {
                 System.out.println("Invalid input. Please use 'W' for up, 'S' for down, or press Enter to select.");
             }
         }
-<<<<<<< HEAD
     }
 
     public static void cls() {
@@ -141,78 +104,6 @@ public class DungeonGame {
     }
 
     public static void roleMenu(Scanner scanner) {
-=======
-    }
-
-    private static void cls() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-    }
-
-    private static void playMenu(Scanner scanner, ListPlayer listPlayer) {
-        cls();
-        banner();
-        System.out.println("\n--- Play Menu ---");
-        System.out.println("Enter player details:");
-    
-        System.out.print("Name: ");
-        String name = scanner.nextLine();
-    
-        String role;
-        while (true) {
-            System.out.print("Role (Mage/Fighter): ");
-            role = scanner.nextLine();
-            if (role.equalsIgnoreCase("Mage") || role.equalsIgnoreCase("Fighter")) {
-                break;
-            } else {
-                System.out.println("Invalid role. Please choose 'Mage' or 'Fighter'.");
-            }
-        }
-    
-        int attack, defense, health;
-        if (role.equalsIgnoreCase("Mage")) {
-            attack = 120;
-            defense = 50;
-            health = 100;
-        } else { // fighter
-            attack = 100;
-            defense = 80;
-            health = 150;
-        }
-    
-    
-        int turn = 1;
-        listPlayer.addPlayer(turn, name, attack, defense, health, role);
-    
-        System.out.println("\nPlayer added successfully!");
-        listPlayer.displayPlayer();  
-        cls();
-        banner();
-        // Mulai game
-        System.out.println("\n--- Game Started! ---");
-        banner();
-        listPlayer.displayMap(); 
-    
-        System.out.println("\nPrepare for your adventure!");
-        System.out.println("Press Enter to continue...");
-        scanner.nextLine();
-        
-
-        // disini ntr method masuk ke game
-    }
-    
-
-    private static void banner() {
-        System.out.println("   ____           ____  _   _ _   _  ____ _____ ___  _   _   ___ \r\n" + //
-                "  / ___|         |  _ \\| | | | \\ | |/ ___| ____/ _ \\| \\ | | |_ _|\r\n" + //
-                " | |  _   _____  | | | | | | |  \\| | |  _|  _|| | | |  \\| |  | | \r\n" + //
-                " | |_| | |_____| | |_| | |_| | |\\  | |_| | |__| |_| | |\\  |  | | \r\n" + //
-                "  \\____|         |____/ \\___/|_| \\_|\\____|_____\\___/|_| \\_| |___|\r\n" + //
-                "                                                                 ");
-    }
-
-    private static void roleMenu(Scanner scanner) {
->>>>>>> b145e92e2ec8fb2cb9ccce7e33a605a6ca711b5c
         cls();
         banner();
         System.out.println("\n--- Role Menu ---");
@@ -238,11 +129,7 @@ public class DungeonGame {
         } while (choice != 2);
     }
 
-<<<<<<< HEAD
     public static void aboutMenu(Scanner scanner) {
-=======
-    private static void aboutMenu(Scanner scanner) {
->>>>>>> b145e92e2ec8fb2cb9ccce7e33a605a6ca711b5c
         cls();
         banner();
         System.out.println("\n---- About Menu ----");
@@ -261,7 +148,6 @@ public class DungeonGame {
             }
         } while (choice != 1);
     }
-<<<<<<< HEAD
 
     public static void playMenu(Scanner scanner, ListPlayer listPlayer, Graph graph) {
         cls();
@@ -387,6 +273,4 @@ public class DungeonGame {
         }
     }
 
-=======
->>>>>>> b145e92e2ec8fb2cb9ccce7e33a605a6ca711b5c
 }

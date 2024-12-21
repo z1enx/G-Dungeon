@@ -1,12 +1,10 @@
-// Kelas untuk menyimpan riwayat perjalanan menggunakan LinkedList
 class TravelLog {
     private Node head;
     
     public TravelLog() {
         head = null;
     }
-    
-    // Menambahkan log perjalanan ke LinkedList
+
     public void addLog(String location, int distance, String previousLocation) {
         Node newNode = new Node(location, distance, previousLocation);
         if (head == null) {
@@ -19,8 +17,7 @@ class TravelLog {
             temp.next = newNode;
         }
     }
-    
-    // Mencetak seluruh riwayat perjalanan
+
     public void printLog() {
         Node temp = head;
         while (temp != null) {
@@ -33,7 +30,6 @@ class TravelLog {
         }
     }
     
-    // Menampilkan lokasi sebelumnya
     public void printPreviousLocation() {
         Node temp = head;
         while (temp != null) {
@@ -43,7 +39,6 @@ class TravelLog {
     }
 }
 
-// Kelas untuk menyimpan data lokasi, jarak, dan lokasi sebelumnya dalam LinkedList
 class Node {
     String location;
     int distance;

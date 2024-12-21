@@ -1,8 +1,6 @@
-
 public class Graph {
     Vertex head;
     ListMonster listMonster = new ListMonster();
-    Fight fight = new Fight();
 
     public void addVertex(int id, String name) {
         Vertex newVertex = new Vertex(id, name);
@@ -17,6 +15,27 @@ public class Graph {
         }
     }
 
+    public int returnID(String name){
+        Vertex temp = head;
+        while(temp != null){
+            if(temp.name.equalsIgnoreCase(name)){
+                return temp.id;
+            }
+            temp = temp.next;
+        }
+        return 9999;
+    }
+
+   public String findById(int id){
+        Vertex temp = head;
+        while(temp != null){
+            if(temp.id == id){
+                return temp.name;
+            }
+            temp = temp.next;
+        }
+        return " ";
+   }
     public Vertex findVertex(int id) {
         Vertex temp = head;
         while (temp != null) {
@@ -28,10 +47,11 @@ public class Graph {
         return null;
     }
 
+
     public Vertex findVertexByName(String name) {
         Vertex temp = head;
         while (temp != null) {
-            if (temp.name.equals(name)) {
+            if (temp.name.equalsIgnoreCase(name)) {
                 return temp;
             }
             temp = temp.next;
@@ -51,7 +71,7 @@ public class Graph {
     public void displayAdjacentLocations(String currentLocation) {
         Vertex currentVertex = findVertexByName(currentLocation);
         if (currentVertex == null) {
-            System.out.println("Lokasi tidak ditemukan.");
+            System.out.println("Location not found.");
             return;
         }
 
@@ -59,7 +79,7 @@ public class Graph {
         while (edge != null) {
             Vertex neighbor = findVertex(edge.destination);
             if (neighbor != null) {
-                System.out.println("- " + neighbor.name + " (Jarak: " + edge.weight + ")");
+                System.out.println("- " + " Point " + neighbor.id + " (Distance: " + edge.weight + ")");
             }
             edge = edge.next;
         }
@@ -74,18 +94,17 @@ public class Graph {
         Edge edge = currentVertex.adjacencyList;
         while (edge != null) {
             Vertex neighbor = findVertex(edge.destination);
-            if (neighbor != null && neighbor.name.equals(destinationName)) {
+            if (neighbor != null && neighbor.name.equalsIgnoreCase(destinationName)) {
                 return edge.weight;
             }
             edge = edge.next;
         }
-
         return -1;
     }
 
     // Method to display the current location
     public void displayCurrentLocation(String currentLocation) {
-        System.out.println("\nLokasi Saat Ini: " + currentLocation);
+        System.out.println("\nCurrent Location: " + currentLocation);
     }
 
     public boolean isValidDestination(String currentLocation, String destination) {
@@ -97,7 +116,7 @@ public class Graph {
         Edge edge = currentVertex.adjacencyList;
         while (edge != null) {
             Vertex neighbor = findVertex(edge.destination);
-            if (neighbor != null && neighbor.name.equals(destination)) {
+            if (neighbor != null && neighbor.name.equalsIgnoreCase(destination)) {
                 return true;
             }
             edge = edge.next;
@@ -105,4 +124,15 @@ public class Graph {
 
         return false;
     }
+
+    public void resetGraph() {
+        Vertex current = head;
+        while (current != null) {
+            current.distance = Integer.MAX_VALUE;
+            current.visited = false;
+            current.prev = null;
+            current = current.next;
+        }
+    }
+    
 }
